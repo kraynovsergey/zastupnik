@@ -1,0 +1,35 @@
+.container {
+	width: 100%;
+	max-width: 1920px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0 3.62rem;
+
+	@media (max-width: 1680px) {
+		padding: 0 3.18rem;
+	}
+
+	@media (max-width: 1440px) {
+		padding: 0 3rem;
+	}
+
+	@media (max-width: 1280px) {
+		padding: 0 2.77rem;
+	}
+
+	@media (max-width: 1024px) {
+		padding: 0 2.22rem;
+	}
+
+	@media (max-width: 991px) {
+		padding: 0 2.18rem;
+	}
+
+	@media (max-width: 767px) {
+		padding: 0 2rem;
+	}
+
+	@media (max-width: 575px) {
+		padding: 0 2.15rem;
+	}
+}

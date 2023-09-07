@@ -1,0 +1,19 @@
+mixin picture_lazy(classname, dir, filename, format, width, height)
+    picture(class= classname)
+        source(type="image/webp" data-srcset="img/"+dir+"webp/"+filename+"@2x.webp 2x, img/"+dir+"webp/"+filename+".webp 1x" srcset="")
+        img.lazy(data-srcset="img/"+dir+filename+"@2x."+format+" 2x, img/"+dir+filename+"."+format+" 1x" srcset="" alt="" width= width height= height)
+
+mixin picture(classname, dir, filename, format, width, height)
+    picture(class= classname)
+        source(type="image/webp" srcset="img/"+dir+"webp/"+filename+"@2x.webp 2x, img/"+dir+"webp/"+filename+".webp 1x")
+        img(srcset="img/"+dir+filename+"@2x."+format+" 2x, img/"+dir+filename+"."+format+" 1x" alt="" width= width height= height loading="lazy")
+
+mixin picture_nolazy(classname, dir, filename, format, width, height)
+    picture(class= classname)
+        source(type="image/webp" srcset="img/"+dir+"webp/"+filename+"@2x.webp 2x, img/"+dir+"webp/"+filename+".webp 1x")
+        img(srcset="img/"+dir+filename+"@2x."+format+" 2x, img/"+dir+filename+"."+format+" 1x" alt="" width= width height= height)
+
+mixin svg_sprite(id, width, height, classname)
+    svg(class=classname width=width height=height)
+        use(xlink:href="img/sprite.svg#"+id+"")
+

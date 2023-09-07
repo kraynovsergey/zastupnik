@@ -1,0 +1,111 @@
+.support {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+
+		@media (max-width: 767px) {
+			grid-template-columns: 1fr;
+		}
+
+		@media (max-width: 767px) {
+			grid-gap: 3rem;
+		}
+	}
+
+	&__content {
+		background: $color_white;
+		border-radius: .42rem;
+		padding: 6rem 6rem 10rem 6.57rem;
+		margin-left: -6.57rem;
+
+		@media (max-width: 1680px) {
+			padding: 6rem 6.13rem 10rem;
+			margin-left: -6.13rem;
+		}
+
+		@media (max-width: 1440px) {
+			padding: 6rem 5.95rem 10rem;
+			margin-left: -5.95rem;
+		}
+
+		@media (max-width: 1280px) {
+			padding: 6rem 5.72rem 8rem;
+			margin-left: -5.72rem;
+		}
+
+		@media (max-width: 1024px) {
+			padding: 4rem 2.22rem 6rem;
+			margin-left: -2.22rem;
+		}
+
+		@media (max-width: 991px) {
+			padding: 3rem 2.18rem 5rem;
+			margin-left: -2.18rem;
+		}
+
+		@media (max-width: 767px) {
+			padding: 0;
+			background: none;
+		}
+
+		font-weight: 300;
+	}
+
+	&__title {
+		margin-bottom: 2rem;
+		line-height: 110%;
+
+		@media (max-width: 767px) {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&__btn {
+		margin-top: 4rem;
+
+		@media (max-width: 767px) {
+			margin-top: 2rem;
+		}
+
+		@media (max-width: 575px) {
+			width: 100%;
+		}
+	}
+
+	&__img {
+		margin-right: -3.5rem;
+		padding-left: 4rem;
+		position: relative;
+
+		@media (max-width: 767px) {
+			grid-row: 1;
+			margin-left: -2rem;
+			margin-right: -2rem;
+			padding-left: 0;
+		}
+
+		@media (max-width: 575px) {
+			margin-left: -2.15rem;
+			margin-right: -2.15rem;
+		}
+	}
+
+	&__picture {
+		display: flex;
+		width: 100%;
+
+		@media (max-width: 767px) {
+			justify-content: center;
+		}
+
+		& img {
+			width: 100%;
+			height: auto;
+
+			@media (max-width: 767px) and (min-width: 576px) {
+				width: 50%;
+			}
+		}
+	}
+}

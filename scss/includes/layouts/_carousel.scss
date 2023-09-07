@@ -1,0 +1,53 @@
+.carousel {
+	&__navigation {
+		width: 2.3rem;
+		height: 2.3rem;
+		border-radius: 50%;
+		border: 2px solid rgba(113, 128, 150, 0.5);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $color_gray;
+		transition: $transition;
+
+		& svg {
+			width: .4rem;
+			height: auto;
+			transform: translateX(1px);
+		}
+
+		&._prev {
+			transform: rotate(-180deg);
+		}
+
+		&:hover {
+			background: $color_white;
+			border-color: $color_white;
+		}
+
+		&.swiper-button-disabled {
+			opacity: .2;
+			cursor: not-allowed;
+		}
+	}
+
+	&__progress {
+		position: relative;
+		background: rgba(182, 192, 206, 0.30);
+		border-radius: 2px;
+		height: 4px;
+		overflow: hidden;
+
+		.swiper-pagination-progressbar-fill {
+			background: #B6C0CE;
+		}
+
+		&._green {
+			background: #B6C0CE;
+
+			.swiper-pagination-progressbar-fill {
+				background: $color_green;
+			}
+		}
+	}
+}

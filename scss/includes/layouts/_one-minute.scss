@@ -1,0 +1,50 @@
+.one-minute {
+	&__container {
+		display: grid;
+		grid-gap: 6rem;
+
+		@media (max-width: 767px) {
+			grid-gap: 2rem;
+		}
+	}
+	
+	&__graph {
+		position: relative;
+
+		@media (max-width: 767px) {
+			display: grid;
+			grid-gap: 3rem;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 34%;
+		display: grid;
+		grid-gap: 1rem;
+
+		@media (max-width: 767px) {
+			position: relative;
+			width: 100%;
+		}
+
+		&-title {
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin: 0;
+			padding: 0;
+			color: $color_black;
+
+			@media (max-width: 767px) {
+				font-size: 1.1rem;
+			}
+		}
+
+		&-text {
+			font-weight: 300;
+			margin: 0;
+		}
+	}
+}

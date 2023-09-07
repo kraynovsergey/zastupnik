@@ -1,0 +1,15 @@
+.video {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__play {
+		position: absolute;
+		width: 72px;
+		height: auto;
+
+		@media (max-width: 767px) {
+			height: 46px;
+		}
+	}
+}

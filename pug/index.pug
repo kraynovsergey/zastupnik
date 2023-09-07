@@ -1,0 +1,457 @@
+extends base
+
+block seo
+	- var seo = {title: 'Главная страница', description: '', keywords: ''}
+
+block main
+	//Интро
+	section.section._pb0
+		.container
+			.intro__grid.section__padding
+				.intro__text
+					h1.intro__title(role="heading") Бесплатное мобильное приложение, <br>которое спасает детей, <br>попавших в беду
+					p.intro__text.ln Одно нажатие тревожной кнопки и на помощь <br>придут волонтеры сообщества «Заступник»
+
+				.intro__picture.full-width-mobile
+					+picture_lazy('', 'tmp/', 'intro', 'png', 826, 792)
+
+				.intro__app.full-width-mobile
+					+picture_lazy('intro__app-block intro__app-picture picture', 'tmp/', 'qr', 'jpg', 217, 217)
+
+					.intro__app-block.intro__app-text.ln
+						p Время оказания помощи в регионах с развитым сообществом «Заступник» в настоящее время <strong>от 2 минут</strong>
+
+					a.intro__app-link.btn._green(href="#" role="link") Установить приложение
+
+					p.intro__app-note.ln Установите бесплатное мобильное приложение «Заступник» себе и своему ребенку
+
+	//Истории
+	mixin history_item(title)
+		.swiper-slide.history__slide
+			a.history__item(href="https://youtu.be/jPOCxzGCY6g" data-fancybox role="link")
+				picture.history__picture.picture
+					source(type="image/webp" srcset="img/tmp/webp/history@2x.webp 2x, img/tmp/webp/history.webp 1x" media="(min-width: 768px)")
+					source(type="image/jpeg" srcset="img/tmp/history@2x.jpg 2x, img/tmp/history.jpg 1x" media="(min-width: 768px)")
+					source(type="image/webp" srcset="img/tmp/webp/history-mobile@2x.webp 2x, img/tmp/webp/history-mobile.webp 1x" media="(max-width: 767px)")
+					source(type="image/jpeg" srcset="img/tmp/history-mobile@2x.jpg 2x, img/tmp/history-mobile.jpg 1x" media="(max-width: 767px)")
+					img(srcset="img/tmp/history@2x.jpg 2x, img/tmp/history.jpg 1x" alt="" width="338" height="728")
+				span.history__title.ln(data-swiper-title)= title
+				img.history__play(src="img/play.svg" width="92" height="92" alt="" loading='lazy')
+
+	section.section._pb0
+		.container
+			.section__padding
+				.swiper.history.full-width-mobile(data-swiper-history)
+					.history__controls
+						button.carousel__navigation._prev(type="button" role="button" aria-label="Предыдущий слайд" data-swiper-prev)
+							+svg_sprite('carousel-arrow', 11, 17)
+
+						.history__controls-items
+							.history__controls-progress.carousel__progress._green(data-swiper-progress)
+							.history__controls-title(data-swiper-title-target)
+
+						button.carousel__navigation._next(type="button" role="button" aria-label="Следующий слайд" data-swiper-next)
+							+svg_sprite('carousel-arrow', 11, 17)
+
+					.swiper-wrapper
+						+history_item('История одного спасения1')
+						+history_item('История одного спасения2')
+						+history_item('История одного спасения3')
+						+history_item('История одного спасения4')
+						+history_item('История одного спасения5')
+						+history_item('История одного спасения6')
+						+history_item('История одного спасения7')
+						+history_item('История одного спасения8')
+						+history_item('История одного спасения9')
+						+history_item('История одного спасения10')
+
+	//Миссия проекта
+	section.section._pb0
+		.container
+			.mission__box.full-width-mobile
+				.mission__content.ln
+					h2.section__title(role="heading") Миссия проекта
+					p «Заступник» реализуется как социальный проект, в котором все функции пользователям предоставляются бесплатно. В числе прочих функций «Заступник» позволяет детям, оказавшимся в экстренной ситуации, немедленно оповестить о наступлении такой критической ситуации родителей, экстренные службы и волонтеров, а самое главное, получить помощь в невероятно короткий срок - от двух минут
+
+				+picture_lazy('mission__picture picture', '', 'green-btn', 'png', 390, 390)
+
+			.mission__swiper-wrapper
+				button.carousel__navigation.mission__navigation._prev(type="button" role="button" data-swiper-mission-prev)
+					+svg_sprite('carousel-arrow', 11, 17)
+				button.carousel__navigation.mission__navigation._next(type="button" role="button" data-swiper-mission-next)
+					+svg_sprite('carousel-arrow', 11, 17)
+
+				.swiper.mission__swiper.full-width-mobile(data-swiper-mission)
+					.swiper-wrapper
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-1', 'png', 298, 600)
+								p.mission__item-title.ln Вы <span>всегда знаете</span> где находится ваш ребенок
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-2', 'png', 298, 600)
+								p.mission__item-title В случае опасности ребенок <span>получит помощь всего через несколько минут</span>
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-3', 'png', 298, 600)
+								p.mission__item-title <span>Получайте уведомления</span> когда ваш ребенок выходит из дома, школы и зон безопасности
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-4', 'png', 298, 600)
+								p.mission__item-title <span>Слушайте звук вокруг ребенка</span>, когда он отправит сигнал тревоги
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-1', 'png', 298, 600)
+								p.mission__item-title.ln Вы <span>всегда знаете</span> где находится ваш ребенок
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-2', 'png', 298, 600)
+								p.mission__item-title В случае опасности ребенок <span>получит помощь всего через несколько минут</span>
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-3', 'png', 298, 600)
+								p.mission__item-title <span>Получайте уведомления</span> когда ваш ребенок выходит из дома, школы и зон безопасности
+
+						.swiper-slide
+							.mission__item
+								+picture('mission__item-picture picture', 'tmp/', 'mission-4', 'png', 298, 600)
+								p.mission__item-title <span>Слушайте звук вокруг ребенка</span>, когда он отправит сигнал тревоги
+
+					.mission__progress.carousel__progress(data-swiper-progress)
+
+	//Видео
+	section.section._pb0
+		a.video(href="https://youtu.be/jPOCxzGCY6g" data-fancybox role="link" aria-label="Открыть видео")
+			+picture_lazy('video__picture picture', 'tmp/', 'video', 'jpg', 1920, 1080)
+			img.video__play(src="img/play.svg" width="72" height="72" alt="" loading='lazy')
+
+	//В россии
+	section.section._pb0
+		.container.numbers__container
+			.numbers__content.full-width-mobile
+				h2.section__title(role="heading") В России
+				ul.numbers__list.ln(role="list")
+					li.numbers__list-item(role="listitem")
+						span.numbers__list-item-circle
+						span.numbers__list-item-text Каждые <strong>33 минуты</strong> ребенок становится жертвой преступления сексуального характера
+					li.numbers__list-item(role="listitem")
+						span.numbers__list-item-circle
+						span.numbers__list-item-text Каждые <strong>15 минут</strong> теряется или пропадает ребёнок
+					li.numbers__list-item(role="listitem")
+						span.numbers__list-item-circle
+						span.numbers__list-item-text Каждые <strong>75 минут</strong> в результате ЧП погибает ребёнок
+
+			.numbers__info
+				.numbers__items
+					.numbers__item.ln.full-width-mobile
+						p.numbers__item-title > 15 000
+						p.numbers__item-text Детей в год становятся жертвой сексуального насилия
+
+					.numbers__item.ln.full-width-mobile
+						p.numbers__item-title > 40 000
+						p.numbers__item-text Детей в год пропадает
+
+					.numbers__item.ln.full-width-mobile
+						p.numbers__item-title > 8 000
+						p.numbers__item-text Детей в год в России погибает в результате происшествий
+
+				p.numbers__note.ln По официальным данным Следственного комитета РФ и МВД РФ
+
+	//Амбассадоры проекта
+	section.section._pb0
+		.container
+			.section__padding.ambassador__container
+				.ambassador__header
+					h2.section__title(role="heading") Амбассадоры проекта
+					p.ambassador__text.ln Это апостолы нашего проекта. Они популяризируют “Заступник”, участвуют в его развитии и помогают нам сделать его более функциональным и эффективным.
+
+				mixin ambassador_item(img, title, text)
+					article.ambassador__item(role="article")
+						+picture_lazy('ambassador__picture picture', 'tmp/', img, 'jpg', 279, 279)
+						.ambassador__content
+							h3.ambassador__name.ln(role="heading")= title
+							p.ambassador__description.ln= text
+
+				.ambassador__items
+					+ambassador_item('ambassador-1', 'Беляков Антон Владимирович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-2', 'Иванов Дмитрий Иванович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-3', 'Владимиров Владимир Владимирович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-4', 'Беляков Антон Владимирович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-1', 'Беляков Антон Владимирович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-2', 'Иванов Дмитрий Иванович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-3', 'Владимиров Владимир Владимирович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+					+ambassador_item('ambassador-4', 'Беляков Антон Владимирович', 'Депутат Государственной Думы V и VI созывов; Член Совета Федерации Федерального Собрания (2013-2018)')
+
+				button.btn._green.ambassador__more(type="button" role="button") Показать всех
+
+	//Одно нажатие тревожной кнопки
+	section.section._pb0
+		.container
+			p.one-click__title-block Что такое Заступник?
+
+			.one-click__box.full-width-mobile
+				.one-click__content.ln
+					h2.section__title.one-click__title(role="heading") Одно нажатие<br> тревожной кнопки
+					p.one-click__text Уже через три секунды после нажатия ребенком тревожной кнопки будут оповещены родители и доверенные взрослые, а профессионалы и волонтеры смогут быстро прийти на помощь
+
+				+picture_lazy('one-click__picture picture', '', 'red-btn', 'png', 390, 390)
+
+			mixin one_click_item(title, text)
+				article.one-click__item.full-width-mobile(role="article")
+					img.one-click__item-circle.lazy(src="img/one-click-circle.svg" alt="" width="124" height="124")
+					h3.one-click__item-title(role="heading")= title
+					p.one-click__item-text= text
+
+			.one-click__items
+				+one_click_item('Круглосуточно', 'контролирует штаб профессиональных операторов и экспертов по безопасности')
+				+one_click_item('100 000 волонтеров', 'задействованы в проекте из различных организаций (ОСВОД, ДПО, поисковые отряды), а также добровольцы цифровой волонтерской сети «Заступник»')
+				+one_click_item('Через 3 секунды', 'после нажатия ребенком тревожной кнопки будут оповещены родители и доверенные взрослые, а профессионалы и волонтеры смогут быстро прийти на помощь')
+
+	//Все ради одной минуты
+	section.section._pb0
+		.container
+			.section__padding.one-minute__container
+				h2.section__title(role="heading") Всё ради одной минуты!
+
+				.one-minute__graph
+					.one-minute__content.ln
+						h3.one-minute__content-title(role="heading") Время реакции
+						p.one-minute__content-text Заступник в 50-100 раз быстрее чем любые экстренные службы. Оператор координирует действия экстренных служб и волонтеров
+
+					picture.one-minute__picture.picture
+						source(type="image/svg+xml" data-srcset="img/tmp/one-minute-mobile.svg" media="(max-width: 767px)")
+						img.lazy(data-src="img/tmp/one-minute.svg" alt="" width="1639" height="491")
+
+	//Заступник успешно работает в 21 регионе России
+	section.section._pb0
+		.container.work__container
+			.work__content.full-width-mobile
+				h2.section__title.work__title(role="heading") «ЗАСТУПНИК» успешно работает <span>в 21 регионе России</span>
+				.work__text.ln
+					p Омская, Нижегородская, Тюменская, Курская, Ульяновская, Сахалинская, Воронежская, Оренбургская, Самарская, Астраханская области, ХМАО
+					p Нам доверяют и помогают директора более <strong>2 000 школ</strong>
+
+			mixin work_item(img, title)
+				.swiper-slide.work__slide
+					.work__item
+						+picture('work__picture picture', 'tmp/', img, 'jpg', 429, 338)
+						p.work__item-title= title
+
+			.work__swiper-wrapper
+				.swiper.full-width-mobile(data-swiper-work)
+					.swiper-wrapper
+						+work_item('map-1', 'Омская обл.')
+						+work_item('map-2', 'Нижегородская обл.')
+						+work_item('map-3', 'Тюменская обл.')
+						+work_item('map-4', 'Ульяновская обл.')
+
+					.carousel__progress.work__progress(data-swiper-progress)
+
+			.work__graph
+				p.work__graph-title Количество пользователей
+				.work__graph-gradient
+				.work__graph-range
+					span min
+					span max
+
+	//АНО
+	//section.section._pb0
+		.container
+			.section__padding
+				h2.section__title(role="heading") АНО
+
+	//Научно технические разработки
+	section.section._pb0
+		.container
+			.section__padding.tech__container
+				.tech__content-wrap.full-width-mobile
+					.tech__content-partners
+						.tech__content-partner.ln
+							+picture_lazy('', 'tmp/', 'tech-1', 'png', 179, 51)
+							| «Заступник» является резидентом научнотехнического инновационного комплекса «Сколково»
+						.tech__content-partner.ln
+							+picture_lazy('', 'tmp/', 'tech-2', 'png', 171, 67)
+							| Workspace Digital Awards 2023 Премия зв 2 место в номинации «мобильные приложения»
+
+					h2.section__title.tech__title(role="heading") Научно-технические разработки
+					p.tech__subtitle.ln Проект имеет собственные уникальные <span>запатентованные алгоритмы</span> работы цифровой платформы
+					p.tech__text.ln «Заступник» является финалистом различных конкурсов и акселераторов, в т.ч. фонда развития интернета при министерстве цифрового развития РФ и биомедтеха Сеченовского университета
+
+					+picture_lazy('tech__content-logos', 'tmp/', 'tech-logos', 630, 69)
+
+				mixin tech_item(img, text)
+					.tech__partners-item.full-width-mobile
+						+picture_lazy('', 'tmp/', img, 'png', 59, 75)
+						span.ln= text
+
+				.tech__partners-wrap
+					p.tech__partners-title.ln Сотрудничество по разработкам инженерно-технических решений
+					.tech__partners-items
+						+tech_item('tech-partner-1', 'ФБГУ «Федеральный научноклинический центр детей и подростков ФМБА России»')
+						+tech_item('tech-partner-2', 'ФБГУ «Федеральный научноклинический центр детей и подростков ФМБА России»')
+						+tech_item('tech-partner-3', 'ФГБУ «НМИЦ ТПМ» Министерства здравоохранения Российской Федерации')
+						+tech_item('tech-partner-4', 'ФГАОУ ВО Первый МГМУ имени И.М. Сеченова Минздрава России (Сеченовский Университет)')
+
+					.tech__partners-logos.full-width-mobile
+						+picture_lazy('', 'tmp/', 'tech-logo-1', 'png', 120, 35)
+						+picture_lazy('', 'tmp/', 'tech-logo-2', 'png', 120, 35)
+						+picture_lazy('', 'tmp/', 'tech-logo-3', 'png', 120, 35)
+						+picture_lazy('', 'tmp/', 'tech-logo-4', 'png', 120, 35)
+						+picture_lazy('', 'tmp/', 'tech-logo-5', 'png', 120, 35)
+						+picture_lazy('', 'tmp/', 'tech-logo-6', 'png', 120, 35)
+
+	//Пресса о "Заступник"
+	section.section._pb0
+		.container
+			.section__padding
+				h2.section__title.press__title.ln(role="heading") Пресса о «ЗАСТУПНИК»
+				p.press__subtitle.ln Сотни публикаций в сми и репортажей на ТВ
+
+			.swiper.full-width-mobile(data-swiper-press)
+				.swiper-wrapper
+					.swiper-slide.press__slide
+						article.press__item(role="article")
+							+picture('press__picture picture', 'tmp/', 'press-article-1', 'jpg', 553, 277)
+							.press__content
+								time.press__date._mobile(datetime="2022-12-12") 12.12.2022
+								h3.press__item-title.ln(role="heading")
+									a.press__link.all-link(href="#" role="link") У ребёнка и вправду может быть аллергия на холод: признаки и лечение
+								.press__text.ln Здоровый образ жизни для детей дошкольного возраста — это не только двигательная активность, но и целый комплекс мер, которые должны стать приоритетными задачами для родителей малыша.
+								.press__controls
+									ul.press__tags(role="list")
+										li.press_tag(role="listitem") Здоровье
+										li.press_tag(role="listitem") Снова в школу
+									time.press__date(datetime="2022-12-12") 12.12.2022
+
+					.swiper-slide.press__slide
+						article.press__item(role="article")
+							+picture('press__picture picture', 'tmp/', 'press-article-2', 'jpg', 553, 277)
+							.press__content
+								time.press__date._mobile(datetime="2022-12-12") 12.12.2022
+								h3.press__item-title.ln(role="heading")
+									a.press__link.all-link(href="#" role="link") У ребёнка и вправду может быть аллергия на холод: признаки и лечение
+								.press__text.ln Здоровый образ жизни для детей дошкольного возраста — это не только двигательная активность, но и целый комплекс мер, которые должны стать приоритетными задачами для родителей малыша.
+								.press__controls
+									ul.press__tags(role="list")
+										li.press_tag(role="listitem") Здоровье
+									time.press__date(datetime="2022-12-12") 12.12.2022
+
+					.swiper-slide.press__slide
+						article.press__item(role="article")
+							+picture('press__picture picture', 'tmp/', 'press-article-3', 'jpg', 553, 277)
+							.press__content
+								time.press__date._mobile(datetime="2022-12-12") 12.12.2022
+								h3.press__item-title.ln(role="heading")
+									a.press__link.all-link(href="#" role="link") У ребёнка и вправду может быть аллергия на холод: признаки и лечение
+								.press__text.ln Здоровый образ жизни для детей дошкольного возраста — это не только двигательная активность, но и целый комплекс мер, которые должны стать приоритетными задачами для родителей малыша.
+								.press__controls
+									ul.press__tags(role="list")
+										li.press_tag(role="listitem") Здоровье
+										li.press_tag(role="listitem") Снова в школу
+									time.press__date(datetime="2022-12-12") 12.12.2022
+
+				.carousel__progress.press__progress(data-swiper-progress)
+
+			.press__logo.full-width-mobile
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-1', 'png', 84, 84)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-2', 'png', 81, 80)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-3', 'png', 90, 63)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-4', 'png', 87, 80)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-5', 'png', 91, 94)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-6', 'png', 193, 60)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-7', 'png', 160, 43)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-8', 'png', 139, 53)
+				+picture_lazy('press__logo-picture', 'tmp/', 'press-9', 'png', 84, 84)
+
+	//Поддержать проект
+	section.section._pb0
+		.container
+			.section__padding.support__container
+				.support__content.full-width-mobile.ln
+					h2.section__title.support__title(role="heading") Поддержать проект
+					p Заступник - независимый некоммерческий проект. Проект существует на гранты и пожертвования таких людей как вы.
+					p Благодаря вашему пожертвованию мы сможем совершенствовать сервисы, оплачивать работу технических специалистов, колл-центра и увеличивать серверные мощности.
+					p В итоге, вместе с вами мы сможем обеспечить безопасность десятков тысяч детей в России.
+					button.support__btn.btn._green(type="button" role="button") Поддержать проект
+
+				.support__img
+					picture.support__picture
+						source(type="image/webp" data-srcset="img/webp/support@2x.webp 2x, img/webp/support.png 1x" media="(min-width: 768px)")
+						source(type="image/png" data-srcset="img/support@2x.png 2x, img/support.png 1x" media="(min-width: 768px)")
+						source(type="image/webp" data-srcset="img/webp/support-mobile@2x.webp 2x, img/webp/support-mobile.webp 1x" media="(max-width: 767px)")
+						source(type="image/png" data-srcset="img/support-mobile@2x.png 2x, img/support-mobile.png 1x" media="(max-width: 767px)")
+						img.lazy(data-srcset="img/support@2x.png 2x, img/support.png 1x" alt="" width="789" height="835")
+
+	//Как начать пользоваться
+	section.section._pb0
+		.container
+			.use__container
+				.use__content
+					h2.section__title.use__title.ln(role="heading") Как начать пользоваться?
+					p.use__text.ln Для того, чтобы начать, вам понадобится <br>всего три минуты, ваш телефон и телефон ребенка
+				.use__qr
+					+picture_lazy('use__qr-picture picture', 'tmp/', 'qr', 'jpg', 217, 217)
+					p.use__qr-title Установить приложение бесплатно
+
+			.use__swiper.swiper.full-width-mobile(data-swiper-use)
+				.swiper-wrapper
+					.swiper-slide
+						.use__item
+							+picture('use__item-picture', 'tmp/', 'use-1', 'png', 356, 575)
+							ol.use__item-list
+								li(role="listitem") <span>1</span> Зарегистрируйтесь
+								li(role="listitem") <span>2</span> Настройте уведомления
+								li(role="listitem") <span>3</span> Добавьте информацию о ребенке
+
+					.swiper-slide
+						.use__item
+							+picture('use__item-picture', 'tmp/', 'use-2', 'png', 356, 575)
+							ol.use__item-list
+								li(role="listitem") <span>4</span> Скачайте «Заступник» ребенку и настройте приложение
+								li(role="listitem") <span>5</span> Добавьте родных и друзей семьи в Круг доверия
+
+					.swiper-slide
+						.use__item
+							+picture('use__item-picture', 'tmp/', 'use-3', 'png', 356, 575)
+							ol.use__item-list
+								li(role="listitem") <span>6</span> Настройте зоны безопасности
+								li(role="listitem") <span>7</span> Вы всегда будете знать, где ваш ребенок
+
+				.use__progress.carousel__progress(data-swiper-progress)
+
+			a.use__btn.btn._green(href="#" role="link") Подробная инструкция
+
+	//Как это работает
+	//section.section._pb0
+			.container
+				.section__padding
+					h2.section__title(role="heading") Как это работает
+
+	//Получить больше информации
+	section.section._pb0
+		.container
+			.section__padding.feedback__container
+				.feedback__content
+					h2.section__title.feedback__title(role="heading") Получить больше информации
+					form.form(action="#" method="post" role="form")
+						fieldset.form__fieldset
+							label.form__label(for="feedback-name") Ваше имя
+							input.form__input(type="text" name="name" id="feedback-name" placeholder="Ваше имя")
+						fieldset.form__fieldset
+							label.form__label(for="feedback-phone") Ваш телефон
+							input.form__input(type="tel" name="phone" id="feedback-phone" placeholder="+7 (...) - ... - .. - .." data-tel)
+						fieldset.form__fieldset
+							label.form__label(for="feedback-email") Ваш E-mail
+							input.form__input(type="email" name="email" id="feedback-email")
+						fieldset.form__fieldset
+							label.form__label(for="feedback-message") Оставить комментарий
+							textarea.form__textarea(name="message" id="feedback-message" placeholder="Ваш комментарий")
+						button.form__btn.btn._green(type="submit" role="button") Свяжитесь со мной
+
+				+picture_lazy('feedback__picture', 'tmp/', 'feedback', 'jpg', 981, 1080)

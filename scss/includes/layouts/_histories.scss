@@ -1,0 +1,141 @@
+.history {
+	@media (min-width: 768px) {
+		padding-bottom: 6rem;
+	}
+
+	&__slide {
+		&.swiper-slide-active {
+			@media (min-width: 768px) {
+				transform: scale(1.4);
+				top: 2rem;
+
+				& .history {
+					&__item {
+						padding: 0.2rem;
+						border-color: #B6C0CE;
+					}
+
+					&__picture {
+						&::after {
+							opacity: 0;
+						}
+					}
+
+					&__title {
+						opacity: 0;
+					}
+
+					&__play {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__item {
+		display: flex;
+		position: relative;
+		border: 4px solid transparent;
+		border-radius: 1.8rem;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+
+		@media (max-width: 767px) {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			border: 0;
+		}
+	}
+
+	&__title {
+		color: $color_white;
+		font-size: .66rem;
+		font-weight: 600;
+		transition: 1s ease;
+		top: 1.4rem;
+		position: absolute;
+		left: 1rem;
+		right: 1rem;
+
+		@media (max-width: 767px) {
+			position: relative;
+			top: unset;
+			left: unset;
+			right: unset;
+			font-size: .9rem;
+			color: $color_gray;
+			margin-top: 1rem;
+		}
+	}
+
+	&__picture {
+		border-radius: 1.67rem;
+		overflow: hidden;
+		border: 4px solid $color_white;
+		position: relative;
+
+		@media (max-width: 767px) {
+			border-radius: 50%;
+			border: 3px solid #B6C0CE;
+			padding: .3rem;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0,0,0,.4);
+			transition: 1s ease;
+
+			@media (max-width: 767px) {
+				display: none;
+			}
+		}
+
+		& img {
+			transition: 1s ease;
+		}
+	}
+
+	&__play {
+		position: absolute;
+		width: 3rem;
+		height: auto;
+		opacity: 0;
+		transition: 1s ease;
+	}
+
+	&__controls {
+		display: grid;
+		grid-template-columns: auto 23% auto;
+		grid-gap: 2.67rem;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 3.5rem;
+
+		@media (max-width: 1280px) {
+			margin-bottom: 2.5rem;
+		}
+
+		@media (max-width: 767px) {
+			display: none;
+		}
+
+		&-items {
+			display: grid;
+			grid-gap: .4rem;
+		}
+
+		&-title {
+			color: $color_gray;
+			font-size: .8rem;
+			font-weight: 600;
+		}
+	}
+}
